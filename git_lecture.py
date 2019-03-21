@@ -1,4 +1,4 @@
-SSN_white_list = [1324,5678,9101]
+SSN_white_list = [1324,5678,9101,7777]
 while True:
     user_ssn_number = input('Enter your SSN number in format (0000): ')
     #length checker
