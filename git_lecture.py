@@ -8,3 +8,6 @@ while True:
     if not user_ssn_number.isdigit():
         print("Please enter digit only")
         continue
+    if int(user_ssn_number) not in SSN_white_list:
+        print("Your premissions are prohibitted, please contact with your manager")
+        continue
