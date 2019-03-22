@@ -14,3 +14,4 @@ while True:
         print("Your premissions are prohibitted, please contact with your manager")
         continue
 print("You are welcome")
+#lecture finished
