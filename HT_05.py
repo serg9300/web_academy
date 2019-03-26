@@ -26,18 +26,28 @@ for k,v in sorted(d.items(), key = lambda x: x[1], reverse = True):
     print(k)
 
 #6
-a1='Ivanov paper 10'
-a2='Petrov pen 5'
-a3='Ivanov marker 3'
-a4='Ivanov paper 10'
-a5='Petrov envelop 10'
-a6='Ivanov envelop 5'
-lst6=[a1.split(),a2.split(),a3.split(),a4.split(),a5.split(),a6.split()]
+def customer_info(file):
+    customers = {}
+    for record in file:
+        new_customer = record.split(" ")
+        if new_customer[0] in customers:
+            if new_customer[1] in customers[new_customer[0]]:
+                customers[new_customer[0]][new_customer[1]] += int(new_customer[2])
+            else:
+                customers[new_customer[0]].setdefault(new_customer[1], int(new_customer[2]))
+        else:
+            customers.setdefault(new_customer[0], {new_customer[1]:int(new_customer[2])})
+    customer_list = [[i, customers[i]] for i in customers]
+    customer_list.sort()
+    for i in customer_list:
+        stuff_list = [[x, i[1][x]] for x in i[1]]
+        stuff_list.sort()
+        i[1] = stuff_list
+    for i in customer_list:
+        print(i[0], ':')
+        for t in i[1]:
+            print(t[0], t[1])
 
-#     d61.append([i[0],{i[1]:int(i[2])}])
-# d6=dict(d61)
-# print(d6)
-#     dict6={i[0]:{i[1]:int(i[2])}}
-#     d6.update(dict6)
-# print(d6)
-#print(dict(zip(lst6[0][0], dict(lst6[0][1:]))))
+file = open(r'C:\Users\User\Desktop\python\git_lecture\input_txt.txt')
+customer_info(file)
+file.close()
