@@ -1,0 +1,4 @@
+INFO:root:create function log
+INFO:root:multiply 5 and 6, result1 30
+INFO:root:multiply 5 and 5, result2 25
+INFO:root:finished function log
